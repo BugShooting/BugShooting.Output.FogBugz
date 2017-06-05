@@ -79,10 +79,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo_64x32.png" />
+    <None Include="Resources\logo_64.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo_16x16.png" />
+    <None Include="Resources\logo_16.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Send.xaml">
