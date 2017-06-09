@@ -96,6 +96,7 @@ namespace BS.Output.FogBugz
     private void AttachToCaseID_GotFocus(object sender, RoutedEventArgs e)
     {
       AttachToCase.IsChecked = true;
+      AttachToCaseID.SelectAll();
     }
 
     private void ReplyToCase_Checked(object sender, RoutedEventArgs e)
@@ -107,6 +108,7 @@ namespace BS.Output.FogBugz
     private void ReplyToCaseID_GotFocus(object sender, RoutedEventArgs e)
     {
       ReplyToCase.IsChecked = true;
+      ReplyToCaseID.SelectAll();
     }
 
     private void Numeric_PreviewTextInput(object sender, TextCompositionEventArgs e)
