@@ -90,7 +90,6 @@ namespace BS.Output.FogBugz
     private void AttachToCase_Checked(object sender, RoutedEventArgs e)
     {
       AttachToCaseID.Focus();
-      AttachToCaseID.SelectAll();
     }
 
     private void AttachToCaseID_GotFocus(object sender, RoutedEventArgs e)
@@ -102,7 +101,6 @@ namespace BS.Output.FogBugz
     private void ReplyToCase_Checked(object sender, RoutedEventArgs e)
     {
       ReplyToCaseID.Focus();
-      ReplyToCaseID.SelectAll();
     }
 
     private void ReplyToCaseID_GotFocus(object sender, RoutedEventArgs e)
