@@ -66,27 +66,6 @@ namespace BS.Output.FogBugz
       this.DialogResult = true;
     }
 
-    private void Cancel_Click(object sender, RoutedEventArgs e)
-    {
-      this.DialogResult = false;
-    }
-
-    protected override void OnPreviewKeyDown(KeyEventArgs e)
-    {
-      base.OnPreviewKeyDown(e);
-
-      switch (e.Key)
-      {
-        case Key.Enter:
-          OK_Click(this, e);
-          break;
-        case Key.Escape:
-          Cancel_Click(this, e);
-          break;
-      }
-
-    }
-
     private void AttachToCase_Checked(object sender, RoutedEventArgs e)
     {
       AttachToCaseID.Focus();

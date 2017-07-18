@@ -20,46 +20,27 @@ namespace BS.Output.FogBugz
     public Edit(Output output)
     {
       InitializeComponent();
-      
-      NameTextBox.Text = output.Name;
-      UrlTextBox.Text = output.Url;
-      
+
+      this.DataContext = this;
+
+      OutputName = output.Name;
+      Url = output.Url;
+
     }
 
-    public string OutputName
+    public string OutputName { get; set; }
+
+    public string Url { get; set; }
+
+    private void ValidateData(object sender, RoutedEventArgs e)
     {
-      get { return NameTextBox.Text; }
+      OK.IsEnabled = !Validation.GetHasError(NameTextBox) &&
+                     !Validation.GetHasError(UrlTextBox);
     }
 
-    public string Url
-    {
-      get { return UrlTextBox.Text; }
-    }
-    
     private void OK_Click(object sender, RoutedEventArgs e)
     {
       this.DialogResult = true;
-    }
-
-    private void Cancel_Click(object sender, RoutedEventArgs e)
-    {
-      this.DialogResult = false;
-    }
-
-    protected override void OnPreviewKeyDown(KeyEventArgs e)
-    {
-      base.OnPreviewKeyDown(e);
-
-      switch (e.Key)
-      {
-        case Key.Enter:
-          OK_Click(this, e);
-          break;
-        case Key.Escape:
-          Cancel_Click(this, e);
-          break;
-      }
-            
     }
 
   }
