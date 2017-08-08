@@ -19,13 +19,7 @@
         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
       <Label Grid.Column="0" Content="Name" />
-      <TextBox x:Name="NameTextBox" Grid.Column="1" VerticalContentAlignment="Center" Validation.Error="ValidateData" >
-        <Binding Path="OutputName" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
-          <Binding.ValidationRules>
-            <local:NotNullOrEmptyValidationRule />
-          </Binding.ValidationRules>
-        </Binding>
-      </TextBox>
+      <TextBox x:Name="NameTextBox" Grid.Column="1" VerticalContentAlignment="Center" local:Validation.Required="True" />
     </Grid>
     <Grid Margin="4">
       <Grid.ColumnDefinitions>
@@ -33,13 +27,7 @@
         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
       <Label Grid.Column="0" Content="Url"/>
-      <TextBox x:Name="UrlTextBox" Grid.Column="1" VerticalContentAlignment="Center" Validation.Error="ValidateData" >
-        <Binding Path="Url" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
-          <Binding.ValidationRules>
-            <local:NotNullOrEmptyValidationRule />
-          </Binding.ValidationRules>
-        </Binding>
-      </TextBox>
+      <TextBox x:Name="UrlTextBox" Grid.Column="1" VerticalContentAlignment="Center" local:Validation.Required="True" />
     </Grid>
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0" >
       <Button x:Name="OK" Width="80" Height="24" Content="OK" Margin="4" Click="OK_Click" IsDefault="True" />

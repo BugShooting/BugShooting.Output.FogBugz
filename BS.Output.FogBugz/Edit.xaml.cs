@@ -9,21 +9,29 @@ namespace BS.Output.FogBugz
     {
       InitializeComponent();
 
-      this.DataContext = this;
+      NameTextBox.Text = output.Name;
+      UrlTextBox.Text = output.Url;
 
-      OutputName = output.Name;
-      Url = output.Url;
+      NameTextBox.TextChanged += ValidateData;
+      UrlTextBox.TextChanged += ValidateData;
+      ValidateData(null, null);
 
     }
 
-    public string OutputName { get; set; }
+    public string OutputName
+    {
+      get { return NameTextBox.Text; }
+    }
 
-    public string Url { get; set; }
+    public string Url
+    {
+      get { return UrlTextBox.Text; }
+    }
 
     private void ValidateData(object sender, RoutedEventArgs e)
     {
-      OK.IsEnabled = !Validation.GetHasError(NameTextBox) &&
-                     !Validation.GetHasError(UrlTextBox);
+      OK.IsEnabled = Validation.IsValid(NameTextBox) &&
+                     Validation.IsValid(UrlTextBox);
     }
 
     private void OK_Click(object sender, RoutedEventArgs e)

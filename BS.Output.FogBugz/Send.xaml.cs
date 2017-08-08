@@ -15,6 +15,11 @@ namespace BS.Output.FogBugz
       UrlLabel.Text = url;
       AttachToCaseID.Text = lastCaseID.ToString();
       ReplyToCaseID.Text = lastCaseID.ToString();
+      NewCase.IsChecked = true;
+
+      AttachToCaseID.SelectionChanged += ValidateData;
+      AttachToCaseID.SelectionChanged += ValidateData;
+      ValidateData(null, null);
 
     }
 
@@ -60,25 +65,47 @@ namespace BS.Output.FogBugz
       }
     }
 
+    private void ValidateData(object sender, EventArgs e)
+    {
+      OK.IsEnabled = Validation.IsValid(AttachToCaseID) &&
+                     Validation.IsValid(ReplyToCaseID);
+    }
+
     private void OK_Click(object sender, RoutedEventArgs e)
     {
       this.DialogResult = true;
     }
 
-    private void AttachToCase_Checked(object sender, RoutedEventArgs e)
+    private void Type_Changed(object sender, RoutedEventArgs e)
     {
-      AttachToCaseID.Focus();
+
+      if (AttachToCase.IsChecked.Value)
+      {
+        AttachToCaseID.SetValue(Validation.RequiredProperty, true);
+        AttachToCaseID.Focus();
+      }
+      else
+      {
+        AttachToCaseID.SetValue(Validation.RequiredProperty, false);
+      }
+
+      if (ReplyToCase.IsChecked.Value)
+      {
+        ReplyToCaseID.SetValue(Validation.RequiredProperty, true);
+        ReplyToCaseID.Focus();
+      }
+      else
+      {
+        ReplyToCaseID.SetValue(Validation.RequiredProperty, false);
+      }
+
+      ValidateData(null, null);
     }
 
     private void AttachToCaseID_GotFocus(object sender, RoutedEventArgs e)
     {
       AttachToCase.IsChecked = true;
       AttachToCaseID.SelectAll();
-    }
-
-    private void ReplyToCase_Checked(object sender, RoutedEventArgs e)
-    {
-      ReplyToCaseID.Focus();
     }
 
     private void ReplyToCaseID_GotFocus(object sender, RoutedEventArgs e)
@@ -91,7 +118,7 @@ namespace BS.Output.FogBugz
     {
       e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
     }
-     
+
   }
 
 }
