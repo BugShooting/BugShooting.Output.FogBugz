@@ -16,6 +16,8 @@ namespace BS.Output.FogBugz
       UrlTextBox.TextChanged += ValidateData;
       ValidateData(null, null);
 
+      UrlTextBox.Focus();
+
     }
 
     public string OutputName
