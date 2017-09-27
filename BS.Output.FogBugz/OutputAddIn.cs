@@ -94,6 +94,9 @@ namespace BS.Output.FogBugz
 
         Send send = new Send(Output.Url, Output.LastCaseID);
 
+        var ownerHelper = new System.Windows.Interop.WindowInteropHelper(send);
+        ownerHelper.Owner = Owner.Handle;
+
         if (send.ShowDialog() != true)
         {
           return new V3.SendResult(V3.Result.Canceled);
