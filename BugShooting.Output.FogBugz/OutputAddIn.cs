@@ -4,10 +4,12 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using BS.Plugin.V3.Output;
+using BS.Plugin.V3.Common;
 
-namespace BS.Output.FogBugz
+namespace BugShooting.Output.FogBugz
 {
-  public class OutputAddIn: V3.OutputAddIn<Output>
+  public class OutputAddIn: OutputPlugin<Output>
   {
 
     protected override string Name
@@ -65,29 +67,29 @@ namespace BS.Output.FogBugz
 
     }
 
-    protected override OutputValueCollection SerializeOutput(Output Output)
+    protected override OutputValues SerializeOutput(Output Output)
     {
 
-      OutputValueCollection outputValues = new OutputValueCollection();
+      OutputValues outputValues = new OutputValues();
 
-      outputValues.Add(new OutputValue("Name", Output.Name));
-      outputValues.Add(new OutputValue("Url", Output.Url));
-      outputValues.Add(new OutputValue("LastCaseID", Convert.ToString(Output.LastCaseID)));
+      outputValues.Add("Name", Output.Name);
+      outputValues.Add("Url", Output.Url);
+      outputValues.Add("LastCaseID", Convert.ToString(Output.LastCaseID));
 
       return outputValues;
       
     }
 
-    protected override Output DeserializeOutput(OutputValueCollection OutputValues)
+    protected override Output DeserializeOutput(OutputValues OutputValues)
     {
 
-      return new Output(OutputValues["Name", this.Name].Value,
-                        OutputValues["Url", ""].Value, 
-                        Convert.ToInt32(OutputValues["LastCaseID", "1"].Value));
+      return new Output(OutputValues["Name", this.Name],
+                        OutputValues["Url", ""], 
+                        Convert.ToInt32(OutputValues["LastCaseID", "1"]));
 
     }
 
-    protected async override Task<V3.SendResult> Send(IWin32Window Owner, Output Output, V3.ImageData ImageData)
+    protected async override Task<SendResult> Send(IWin32Window Owner, Output Output, ImageData ImageData)
     {
       try
       {
@@ -99,28 +101,28 @@ namespace BS.Output.FogBugz
 
         if (send.ShowDialog() != true)
         {
-          return new V3.SendResult(V3.Result.Canceled);
+          return new SendResult(Result.Canceled);
         }
 
         string filePath = Path.Combine(Path.GetTempPath(), "SendToFogBugz.html");
 
-        CreateSendFile(filePath, Output.Url, ImageData.GetImage(), send.Type, send.CaseID);
+        CreateSendFile(filePath, Output.Url, ImageData.MergedImage, send.Type, send.CaseID);
 
         System.Diagnostics.Process.Start(filePath);
 
         if (send.Type == SendType.AttachToCase || send.Type == SendType.ReplyToCase)
         {
-          return new V3.SendResult(V3.Result.Success, new Output(Output.Name, Output.Url, send.CaseID));
+          return new SendResult(Result.Success, new Output(Output.Name, Output.Url, send.CaseID));
         }
         else
         {
-          return new V3.SendResult(V3.Result.Success);
+          return new SendResult(Result.Success);
         }
         
       }
       catch (Exception ex)
       {
-        return new V3.SendResult(V3.Result.Failed, ex.Message);
+        return new SendResult(Result.Failed, ex.Message);
       }
       
     }

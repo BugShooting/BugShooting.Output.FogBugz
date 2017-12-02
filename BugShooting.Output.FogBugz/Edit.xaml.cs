@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace BS.Output.FogBugz
+namespace BugShooting.Output.FogBugz
 {
   partial class Edit : Window
   {

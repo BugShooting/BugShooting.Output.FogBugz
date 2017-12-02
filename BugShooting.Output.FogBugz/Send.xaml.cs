@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
 
-namespace BS.Output.FogBugz
+namespace BugShooting.Output.FogBugz
 {
   partial class Send : Window
   {

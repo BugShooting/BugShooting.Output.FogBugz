@@ -1,6 +1,6 @@
-﻿using System;
+﻿using BS.Plugin.V3.Output;
 
-namespace BS.Output.FogBugz
+namespace BugShooting.Output.FogBugz
 {
 
   public class Output: IOutput 

@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
     <metadata>
-			<id>BS.Output.FogBugz</id>
-			<version>1.0.4</version>
+			<id>BugShooting.Output.FogBugz</id>
+			<version>1.0.0</version>
 			<title>FogBugz Output for Bug Shooting</title>
 			<authors>Bug Shooting, Alexej Hirsch</authors>
 			<owners>Bug Shooting, Alexej Hirsch</owners>
       <licenseUrl>https://github.com/BugShooting/Output.FogBugz/raw/master/LICENSE.txt</licenseUrl>
 			<projectUrl>https://github.com/BugShooting</projectUrl>
-			<iconUrl>https://github.com/BugShooting/Output.FogBugz/raw/master/BS.Output.FogBugz/Resources/logo_64.png</iconUrl>
+			<iconUrl>https://github.com/BugShooting/Output.FogBugz/raw/master/BugShooting.Output.FogBugz/Resources/logo_64.png</iconUrl>
 			<requireLicenseAcceptance>false</requireLicenseAcceptance>
 			<releaseNotes />
 			<description>Attach screenshots to FogBugz cases.</description>
 			<copyright />
-			<tags>bugshooting.com/output/v3</tags>
+			<tags>bugshooting.plugin.v3.output</tags>
     </metadata>
     <files>
-			<file src="BS.Output.FogBugz.dll" />
+			<file src="BugShooting.Output.FogBugz.dll" />
     </files>
 </package>
