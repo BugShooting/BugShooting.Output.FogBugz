@@ -6,9 +6,9 @@
 			<title>FogBugz Output for Bug Shooting</title>
 			<authors>Bug Shooting, Alexej Hirsch</authors>
 			<owners>Bug Shooting, Alexej Hirsch</owners>
-      <licenseUrl>https://github.com/BugShooting/Output.FogBugz/raw/master/LICENSE.txt</licenseUrl>
+      <licenseUrl>https://github.com/BugShooting/BugShooting.Output.FogBugz/raw/master/LICENSE.txt</licenseUrl>
 			<projectUrl>https://github.com/BugShooting</projectUrl>
-			<iconUrl>https://github.com/BugShooting/Output.FogBugz/raw/master/BugShooting.Output.FogBugz/Resources/logo_64.png</iconUrl>
+			<iconUrl>https://github.com/BugShooting/BugShooting.Output.FogBugz/raw/master/BugShooting.Output.FogBugz/Resources/logo_64.png</iconUrl>
 			<requireLicenseAcceptance>false</requireLicenseAcceptance>
 			<releaseNotes />
 			<description>Attach screenshots to FogBugz cases.</description>
