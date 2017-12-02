@@ -9,7 +9,7 @@ using BS.Plugin.V3.Common;
 
 namespace BugShooting.Output.FogBugz
 {
-  public class OutputAddIn: OutputPlugin<Output>
+  public class OutputPlugin: OutputPlugin<Output>
   {
 
     protected override string Name
