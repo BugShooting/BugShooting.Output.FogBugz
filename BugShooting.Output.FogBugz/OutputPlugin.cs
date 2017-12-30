@@ -34,7 +34,7 @@ namespace BugShooting.Output.FogBugz
 
     protected override string Description
     {
-      get { return "Attach screenshots to FogBugz Cases."; }
+      get { return "Attach screenshots to FogBugz cases."; }
     }
     
     protected override Output CreateOutput(IWin32Window Owner)
